@@ -1,7 +1,8 @@
 Dim chapter=[],get_num=0,insert_chapter=[],iRet,is_content="",chapter_content=""
 Delay(2000)
+Log.Info("等待页面加载完毕")
 chapter = UiElement.DataScrap({"wnd":[{"cls":"Chrome_WidgetWin_1","title":"*","app":"chrome"},{"cls":"Chrome_RenderWidgetHostHWND","title":"Chrome Legacy Window"}],"html":[{"tag":"HTML"}]},{"ExtractTable":0,"Columns":[{"selecors":[{"tag":"div","index":0,"className":"jcdf_box","value":"div.jcdf_box","prefix":""},{"tag":"dl","index":0,"className":"","value":"dl","prefix":">"},{"tag":"dd","value":"dd","index":0,"prefix":">"},{"tag":"a","index":0,"className":"","value":"a","prefix":">"}],"props":["text","url"]}]},{"objNextLinkElement":'',"iMaxNumberOfPage":1,"iMaxNumberOfResult":-1,"iDelayBetweenMS":1000,"bContinueOnError":False})
-TracePrint($PrevResult)
+Log.Info("获取小说章节")
 For Each index,value In chapter
 iRet = WebBrowser.GoURL(g_hWeb,value[1],true,{},30000,{"bContinueOnError":false,"iDelayAfter":300,"iDelayBefore":200})
 is_content = UiElement.Exists(@ui"标题<h1>_遮天正文第一章星空中的青铜巨棺",{"bContinueOnError":false,"iDelayAfter":300,"iDelayBefore":200})
@@ -15,10 +16,13 @@ insert_chapter[index][2] = chapter_content
 insert_chapter[index][3] = g_incomplete_novel[1]
 get_num = get_num + 1
 If get_num = 20 
+Log.Info("判断有无小说内容并保存到数据库")
+TracePrint(insert_chapter)
 iRet = Database.ExecuteBatchSQL(g_db ,"INSERT INTO chapter(title, chapter_number, content, noval_id) VALUES (%s, %s, %s, %s)", {"args": insert_chapter})
 get_num = 0
 insert_chapter = []
-Break
 End If
+
+TracePrint(insert_chapter)
 End If
 Next

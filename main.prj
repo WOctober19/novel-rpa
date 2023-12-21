@@ -87,7 +87,7 @@
             "next": {},
             "exception": {},
             "file": "noval_chapter.task",
-            "editorMode": "visual",
+            "editorMode": "sourceCode",
             "breakpoints": {}
         }
     ],
@@ -207,7 +207,7 @@
                                     "id": "941af8b0-9f36-11ee-8681-4f1fb5d606ec"
                                 },
                                 "enableClose": false,
-                                "className": "",
+                                "className": "flexlayout__tab_button_modify",
                                 "icon": "../../../assets/_/pages-next/home/childrens/main/assets/tab-flow.png"
                             },
                             {

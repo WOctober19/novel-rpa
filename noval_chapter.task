@@ -8,18 +8,21 @@ iRet = WebBrowser.GoURL(g_hWeb,value[1],true,{},30000,{"bContinueOnError":false,
 is_content = UiElement.Exists(@ui"标题<h1>_遮天正文第一章星空中的青铜巨棺",{"bContinueOnError":false,"iDelayAfter":300,"iDelayBefore":200})
 If is_content 
 
-Log.Info("判断有无小说内容并保存到数据库")
 chapter_content = UiElement.GetValue(@ui"块级元素<div>_第一章星空中的青铜巨棺生命是世间最伟大的奇迹。23us．四方上下曰宇。宇虽有实，1",{"bContinueOnError":false,"iDelayAfter":300,"iDelayBefore":200})
-insert_chapter[index] = []
-insert_chapter[index][0] = value[0]
-insert_chapter[index][1] = index + 1
-insert_chapter[index][2] = chapter_content
-insert_chapter[index][3] = g_incomplete_novel[1]
+insert_chapter[get_num] = []
+insert_chapter[get_num][0] = value[0]
+insert_chapter[get_num][1] = index + 1
+insert_chapter[get_num][2] = chapter_content
+insert_chapter[get_num][3] = g_incomplete_novel[1]
 get_num = get_num + 1
 If get_num = 20 
+Log.Info("判断有无小说内容并保存到数据库")
+TracePrint(insert_chapter)
 iRet = Database.ExecuteBatchSQL(g_db ,"INSERT INTO chapter(title, chapter_number, content, noval_id) VALUES (%s, %s, %s, %s)", {"args": insert_chapter})
 get_num = 0
 insert_chapter = []
 End If
+
+TracePrint(insert_chapter)
 End If
 Next
