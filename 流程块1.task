@@ -1,0 +1,3 @@
+Dim sRet
+sRet = UiElement.GetValue(@ui"块级元素<div>_第一章星空中的青铜巨棺生命是世间最伟大的奇迹。23us．四方上下曰宇。宇虽有实，",{"bContinueOnError":false,"iDelayAfter":300,"iDelayBefore":200})
+TracePrint($PrevResult)

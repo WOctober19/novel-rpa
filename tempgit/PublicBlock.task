@@ -1,0 +1,7 @@
+Function mysql_connect()
+
+TracePrint("--------连接数据库---------")
+g_db = Database.CreateDB("MySQL",{"host": "127.0.0.1", "port": "3306", "user": "root","password": "9r0iKKr22/ey/48hS6FN/Q==","database": "entertainment","charset": "utf8"})
+
+TracePrint("--------连接数据库成功---------")
+End Function
