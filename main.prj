@@ -30,15 +30,15 @@
                 "height": 64
             },
             "next": {
-                "refId": "",
+                "refId": "1f2aff03-9e3e-4e5f-bd18-0bcceb353056",
                 "vertices": []
             },
             "exception": {
                 "refId": "",
                 "vertices": []
             },
-            "file": "noval_network.task",
-            "caption": "登录小说网",
+            "file": "noval_search.task",
+            "caption": "小说搜索",
             "editorMode": "visual",
             "breakpoints": {}
         },
@@ -62,8 +62,8 @@
             "type": "task",
             "id": "2d033366-9bf2-46f2-8412-cfa57c59d06f",
             "rect": {
-                "x": 1041,
-                "y": 86,
+                "x": 1224,
+                "y": 96,
                 "width": 196,
                 "height": 64
             },
@@ -71,6 +71,22 @@
             "next": {},
             "exception": {},
             "file": "PublicBlock.task",
+            "editorMode": "visual",
+            "breakpoints": {}
+        },
+        {
+            "type": "task",
+            "id": "1f2aff03-9e3e-4e5f-bd18-0bcceb353056",
+            "rect": {
+                "x": 772,
+                "y": 448,
+                "width": 196,
+                "height": 64
+            },
+            "caption": "小说章节",
+            "next": {},
+            "exception": {},
+            "file": "noval_chapter.task",
             "editorMode": "visual",
             "breakpoints": {}
         }
@@ -89,6 +105,11 @@
         {
             "name": "g_db",
             "value": "\"\"",
+            "type": "none"
+        },
+        {
+            "name": "g_incomplete_novel",
+            "value": "[]",
             "type": "none"
         }
     ],
@@ -112,7 +133,7 @@
             "borders": [
                 {
                     "type": "border",
-                    "selected": 1,
+                    "selected": 0,
                     "size": 250,
                     "minSize": 250,
                     "enableAutoHide": true,
@@ -140,7 +161,7 @@
                 },
                 {
                     "type": "border",
-                    "selected": 1,
+                    "selected": 0,
                     "size": 280,
                     "minSize": 280,
                     "location": "right",
@@ -173,7 +194,6 @@
                     {
                         "type": "tabset",
                         "id": "#3fb7ac22-6744-471a-8cfe-f09256bbccdd",
-                        "selected": 3,
                         "children": [
                             {
                                 "type": "tab",
@@ -186,13 +206,13 @@
                                     "id": "941af8b0-9f36-11ee-8681-4f1fb5d606ec"
                                 },
                                 "enableClose": false,
-                                "className": "flexlayout__tab_button_modify",
+                                "className": "",
                                 "icon": "../../../assets/_/pages-next/home/childrens/main/assets/tab-flow.png"
                             },
                             {
                                 "type": "tab",
                                 "id": "941af8b1-9f36-11ee-8681-4f1fb5d606ec",
-                                "name": "登录小说网",
+                                "name": "小说搜索",
                                 "helpText": "C:\\Users\\wuchonghua\\Desktop\\Person\\study\\RPA\\小说\\novel-rpa\\流程块.task",
                                 "component": "taskNodeEditor",
                                 "config": {
@@ -209,38 +229,20 @@
                             },
                             {
                                 "type": "tab",
-                                "id": "92702c0a-d0d2-49ef-b88c-b3227139793b",
-                                "name": "测试",
-                                "helpText": "C:\\Users\\wuchonghua\\Desktop\\Person\\study\\RPA\\小说\\novel-rpa\\流程块1.task",
+                                "id": "1f2aff03-9e3e-4e5f-bd18-0bcceb353056",
+                                "name": "小说章节",
+                                "helpText": "C:\\Users\\20831\\Desktop\\rpa\\novel-rpa\\noval_chapter.task",
                                 "component": "taskNodeEditor",
                                 "config": {
                                     "selfControl": true,
-                                    "id": "92702c0a-d0d2-49ef-b88c-b3227139793b",
+                                    "id": "1f2aff03-9e3e-4e5f-bd18-0bcceb353056",
                                     "type": "task",
                                     "selector": [
-                                        "92702c0a-d0d2-49ef-b88c-b3227139793b"
+                                        "1f2aff03-9e3e-4e5f-bd18-0bcceb353056"
                                     ]
                                 },
                                 "enableClose": true,
                                 "className": "",
-                                "icon": "../../../assets/_/pages-next/home/childrens/main/assets/tab-task.png"
-                            },
-                            {
-                                "type": "tab",
-                                "id": "2d033366-9bf2-46f2-8412-cfa57c59d06f",
-                                "name": "公用模块",
-                                "helpText": "C:\\Users\\wuchonghua\\Desktop\\Person\\study\\RPA\\小说\\novel-rpa\\PublicBlock.task",
-                                "component": "taskNodeEditor",
-                                "config": {
-                                    "selfControl": true,
-                                    "id": "2d033366-9bf2-46f2-8412-cfa57c59d06f",
-                                    "type": "task",
-                                    "selector": [
-                                        "2d033366-9bf2-46f2-8412-cfa57c59d06f"
-                                    ]
-                                },
-                                "enableClose": true,
-                                "className": "flexlayout__tab_button_modify",
                                 "icon": "../../../assets/_/pages-next/home/childrens/main/assets/tab-task.png"
                             }
                         ],

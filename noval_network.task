@@ -1,2 +1,0 @@
-Dim hWeb
-g_hWeb = WebBrowser.Create("chrome","https://www.jcdf99.com/book/2/2425/",30000,{"bContinueOnError":false,"iDelayAfter":300,"iDelayBefore":200,"sBrowserPath":"","sStartArgs":""})

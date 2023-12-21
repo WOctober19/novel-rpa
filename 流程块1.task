@@ -1,3 +1,6 @@
-Dim sRet
-sRet = UiElement.GetValue(@ui"块级元素<div>_第一章星空中的青铜巨棺生命是世间最伟大的奇迹。23us．四方上下曰宇。宇虽有实，",{"bContinueOnError":false,"iDelayAfter":300,"iDelayBefore":200})
+Dim sRet,incomplete_first,g_db
+
+sRet = Database.CreateDB("MySQL",{"host": "127.0.0.1", "port": "3306", "user": "root","password": "9r0iKKr22/ey/48hS6FN/Q==","database": "entertainment","charset": "utf8"})
+incomplete_first = Database.QueryOne(sRet ,"select name,id from noval where status = 0 order by id", {"rdict": false, "args": []})
+
 TracePrint($PrevResult)

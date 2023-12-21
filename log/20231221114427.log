@@ -1,0 +1,12 @@
+[2023/12/21 11:44:27][INFO][][0] 工作路径已切换到 C:\Users\20831\Desktop\rpa\novel-rpa\
+[2023/12/21 11:44:27][INFO][main.prj][0] 流程 main.prj 开始运行
+[2023/12/21 11:44:27][INFO][main.prj][0] 进入流程块“小说搜索”
+[2023/12/21 11:44:27][INFO][noval_search.task][3] -------开始----------
+[2023/12/21 11:44:39][INFO][noval_search.task][9] 对小说名进行搜索并判断是否在小说详情页
+[2023/12/21 11:44:42][INFO][noval_search.task][28] 小说列表页先进行名称判断然后进行页面访问
+[2023/12/21 11:44:42][INFO][main.prj][0] 进入流程块“小说章节”
+[2023/12/21 11:45:39][ERROR][noval_chapter.task][18] 运行发生错误，流程中止
+错误信息如下：
+noval_chapter.task 第18行：模块 Database.ExecuteBatchSQL 命令出错：ExecuteBatchSQL 异常：
+not enough arguments for format string
+[2023/12/21 11:45:39][INFO][main.prj][0] C:\Users\20831\Desktop\rpa\novel-rpa\main.prj 运行已结束

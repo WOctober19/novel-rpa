@@ -1,0 +1,29 @@
+Dim hWeb,sRet,read_img=false,noval_link=[],iRet
+PublicBlock.mysql_connect()
+Log.Info("-------开始----------")
+g_hWeb = WebBrowser.Create("chrome","https://www.jcdf99.com/book/2/2425/",30000,{"bContinueOnError":false,"iDelayAfter":300,"iDelayBefore":200,"sBrowserPath":"","sStartArgs":""})
+g_incomplete_novel = Database.QueryOne(g_db ,"select name, id from noval where status = 0 order by id", {"rdict": false, "args": []})
+Keyboard.InputText(@ui"输入控件<input>_武动乾坤",g_incomplete_novel[0],true,20,10000,{"bContinueOnError": false, "iDelayAfter": 300, "iDelayBefore": 500, "bSetForeground": true, "sSimulate": "message", "bValidate": false, "bClickBeforeInput": false})
+Mouse.Action(@ui"输入控件<input>_小说搜索","left","click",10000,{"bContinueOnError": false, "iDelayAfter": 300, "iDelayBefore": 200, "bSetForeground": true, "sCursorPosition": "Center", "iCursorOffsetX": 0, "iCursorOffsetY": 0, "sKeyModifiers": [],"sSimulate": "simulate", "bMoveSmoothly": false})
+read_img = UiElement.Exists(@ui"图像<img>",{"bContinueOnError":false,"iDelayAfter":300,"iDelayBefore":200})
+Log.Info("对小说名进行搜索并判断是否在小说详情页")
+If read_img 
+Mouse.Action(@ui"图像<img>1","left","click",10000,{"bContinueOnError": false, "iDelayAfter": 300, "iDelayBefore": 200, "bSetForeground": true, "sCursorPosition": "Center", "iCursorOffsetX": 0, "iCursorOffsetY": 0, "sKeyModifiers": [],"sSimulate": "simulate", "bMoveSmoothly": false})
+
+Log.Info("小说详情页直接点击")
+Else 
+
+noval_link = UiElement.DataScrap({"wnd":[{"cls":"Chrome_WidgetWin_1","title":"*","app":"chrome"},{"cls":"Chrome_RenderWidgetHostHWND","title":"Chrome Legacy Window"}],"html":[{"tag":"DIV","id":"content"}]},{"ExtractTable":0,"Columns":[{"selecors":[{"tag":"table","index":0,"className":"grid","value":"table.grid","prefix":""},{"tag":"tbody","index":0,"className":"","value":"tbody","prefix":">"},{"tag":"tr","value":"tr","index":0,"prefix":">"},{"tag":"td","index":1,"className":"odd","value":"td:nth-child(1)","prefix":">"},{"tag":"a","index":0,"className":"","value":"a","prefix":">"}],"props":["text","url"]}]},{"objNextLinkElement":{"wnd":[{"cls":"Chrome_WidgetWin_1","title":"*","app":"chrome"},{"cls":"Chrome_RenderWidgetHostHWND","title":"Chrome Legacy Window"}],"html":[{"tag":"A","parentid":"pagelink","aaname":">>"}]},"iMaxNumberOfPage":1,"iMaxNumberOfResult":-1,"iDelayBetweenMS":1000,"bContinueOnError":False})
+
+
+For Each value In noval_link
+
+If value[0] = g_incomplete_novel[0] 
+iRet = WebBrowser.GoURL(g_hWeb,value[1],true,{},30000,{"bContinueOnError":false,"iDelayAfter":300,"iDelayBefore":200})
+
+Mouse.Action(@ui"图像<img>1","left","click",10000,{"bContinueOnError": false, "iDelayAfter": 300, "iDelayBefore": 200, "bSetForeground": true, "sCursorPosition": "Center", "iCursorOffsetX": 0, "iCursorOffsetY": 0, "sKeyModifiers": [],"sSimulate": "simulate", "bMoveSmoothly": false})
+Break
+End If
+Next
+Log.Info("小说列表页先进行名称判断然后进行页面访问")
+End If

@@ -1,0 +1,10 @@
+[2023/12/21 10:52:41][INFO][][0] 工作路径已切换到 C:\Users\20831\Desktop\rpa\novel-rpa\
+[2023/12/21 10:52:41][INFO][main.prj][0] 流程 main.prj 开始运行
+[2023/12/21 10:52:41][INFO][main.prj][0] 进入流程块“登录小说网”
+[2023/12/21 10:52:41][INFO][noval_network.task][3] -------开始----------
+[2023/12/21 10:52:53][INFO][noval_network.task][9] 对小说名进行搜索并判断是否在小说详情页
+[2023/12/21 10:53:12][ERROR][noval_network.task][24] 运行发生错误，流程中止
+错误信息如下：
+noval_network.task 第24行：模块 Mouse.MouseAuto.Action 命令出错：调用的目标发生了异常。
+Exception in Mouse.Action,元素未找到
+[2023/12/21 10:53:12][INFO][main.prj][0] C:\Users\20831\Desktop\rpa\novel-rpa\main.prj 运行已结束
